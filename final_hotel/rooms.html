@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Stay - Le Grandeur Luxury Hotel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="book.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1 class="logo"><a href="index.html">Le Grandeur</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#rooms">Rooms & Suites</a></li>
+                    <li><a href="dining.html">Dining</a></li> <!-- Link to this page -->
+                    <li><a href="boutique.html">Boutique</a></li> <!-- Link to Boutique page -->
+                    <li><a href="login.html">Log in</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                    <li><a href="rooms.html" class="btn btn-primary">Book Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="booking-hero">
+        <div class="booking-hero-content">
+            <h2>Reserve Your Luxurious Retreat</h2>
+            <p>Select your dates and room preferences for an unforgettable stay at Le Grandeur.</p>
+        </div>
+    </section>
+
+    <section class="booking-form-section section-padding">
+        <div class="container">
+            <div class="booking-form-wrapper">
+                <h3>Make a Reservation</h3>
+                <!-- Form action is now handled by JavaScript -->
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label for="guest-name">Full Name</label>
+                        <input type="text" id="guest-name" name="guest_name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkin-date">Check-in Date</label>
+                        <input type="text" id="checkin-date" name="checkin_date" class="datepicker" placeholder="Select Check-in Date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkout-date">Check-out Date</label>
+                        <input type="text" id="checkout-date" name="checkout_date" class="datepicker" placeholder="Select Check-out Date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="adults">Adults</label>
+                        <select id="adults" name="adults">
+                            <option value="1">1</option>
+                            <option value="2" selected>2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="children">Children (Optional)</label>
+                        <select id="children" name="children">
+                            <option value="0" selected>0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="room-type">Room Type (Optional)</label>
+                        <select id="room-type" name="room_type">
+                            <option value="">Any</option>
+                            <option value="classic">Classic Parisian Room</option>
+                            <option value="deluxe">Deluxe Eiffel Suite</option>
+                            <option value="presidential">Presidential Grand Suite</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Book</button>
+                </form>
+                <div class="booking-notes">
+                    <p>Our online booking system provides real-time availability and instant confirmation.</p>
+                    <p>For special requests or inquiries, please <a href="index.html#contact">contact us</a> directly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Le Grandeur</h4>
+                    <p>123 Rue de la Paix<br>75001 Paris, France</p>
+                    <p>+33 1 23 45 67 89</p>
+                    <p><a href="mailto:info@legrandeur.com">info@legrandeur.com</a></p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#rooms">Rooms & Suites</a></li>
+                        <li><a href="index.html#dining">Dining</a></li>
+                        <li><a href="index.html#spa">Spa & Wellness</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><img src="/Users/akshat/Desktop/coding/vs code /final_hotel/icons8-facebook-logo-50.png" alt="Facebook"></a>
+                        <a href="#" aria-label="Instagram"><img src="/Users/akshat/Desktop/coding/vs code /final_hotel/icons8-instagram-logo-50-2.png" alt="Instagram"></a>
+                        <a href="#" aria-label="Twitter"><img src="/Users/akshat/Desktop/coding/vs code /final_hotel/icons8-x-logo-50.png" alt="Twitter"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Le Grandeur. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        // Initialize Flatpickr for date pickers
+        flatpickr(".datepicker", {
+            dateFormat: "Y-m-d", // Date format (e.g., 2025-06-08)
+            minDate: "today" // Prevents selection of past dates
+        });
+
+        // Auto-fill guest name if a user is logged in
+        const loggedInUser = JSON.parse(localStorage.getItem('leGrandeurLoggedInUser'));
+        if (loggedInUser && loggedInUser.name) {
+            document.getElementById('guest-name').value = loggedInUser.name;
+        }
+
+        document.getElementById('bookingForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const guestName = document.getElementById('guest-name').value;
+            const checkinDate = document.getElementById('checkin-date').value;
+            const checkoutDate = document.getElementById('checkout-date').value;
+            const adults = document.getElementById('adults').value;
+            const children = document.getElementById('children').value;
+            const roomType = document.getElementById('room-type').value;
+
+            // Generate a dummy confirmation number
+            const confirmationNumber = 'LG-' + Date.now().toString().slice(-8) + Math.random().toString(36).substr(2, 3).toUpperCase();
+
+            // Store booking details in localStorage
+            const bookingDetails = {
+                confirmationNumber: confirmationNumber,
+                guestName: guestName,
+                checkinDate: checkinDate,
+                checkoutDate: checkoutDate,
+                adults: adults,
+                children: children,
+                roomType: roomType,
+                // Add a dummy price
+                totalPrice: '€' + (parseInt(adults) * 500 + parseInt(children) * 100 + (roomType === 'deluxe' ? 1000 : (roomType === 'presidential' ? 2500 : 0))).toLocaleString('en-US') + '.00'
+            };
+            localStorage.setItem('leGrandeurLatestBooking', JSON.stringify(bookingDetails));
+
+            // Redirect to confirmation page
+            window.location.href = 'confirmation.html';
+        });
+    </script>
+</body>
+</html>

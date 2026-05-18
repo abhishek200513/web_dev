@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmed! - Le Grandeur Luxury Hotel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="confirmation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1 class="logo"><a href="index.html">Le Grandeur</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#rooms">Rooms & Suites</a></li>
+                    <li><a href="dining.html">Dining</a></li> 
+                    <li><a href="boutique.html">Boutique</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                    <li><a href="book.html" class="btn btn-primary">Book Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="confirmation-hero">
+        <div class="confirmation-hero-content">
+            <h2>Your Booking is Confirmed!</h2>
+            <p>Thank you for choosing Le Grandeur. We look forward to welcoming you.</p>
+        </div>
+    </section>
+
+    <section class="booking-details-section section-padding">
+        <div class="container">
+            <div class="confirmation-wrapper">
+                <h3>Reservation Details</h3>
+                <div id="bookingDetailsContent">
+                    <p style="text-align: center; color: #888;">Loading booking details...</p>
+                </div>
+                
+                <div class="confirmation-actions">
+                    <p>An email with your full booking itinerary has been sent to your registered email address.</p>
+                    <a href="#" class="btn btn-primary">Manage Your Booking</a>
+                    <a href="index.html" class="btn btn-secondary">Back to Homepage</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Le Grandeur</h4>
+                    <p>123 Rue de la Paix<br>75001 Paris, France</p>
+                    <p>+33 1 23 45 67 89</p>
+                    <p><a href="mailto:info@legrandeur.com">info@legrandeur.com</a></p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#rooms">Rooms & Suites</a></li>
+                    <li><a href="dining.html">Dining</a></li>
+                    <li><a href="boutique.html">Boutique</a></li>
+                    <li><a href="login.html">Log in</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                    <li><a href="rooms.html" class="btn btn-primary">Book Now</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><img src="/Users/akshat/Desktop/coding/vs code /final_hotel/icons8-facebook-logo-50.png" alt="Facebook"></a>
+                        <a href="#" aria-label="Instagram"><img src="/Users/akshat/Desktop/coding/vs code /final_hotel/icons8-instagram-logo-50-2.png" alt="Instagram"></a>
+                        <a href="#" aria-label="Twitter"><img src="/Users/akshat/Desktop/coding/vs code /final_hotel/icons8-x-logo-50.png" alt="Twitter"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Le Grandeur. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const bookingDetailsContent = document.getElementById('bookingDetailsContent');
+            const latestBooking = JSON.parse(localStorage.getItem('leGrandeurLatestBooking'));
+
+            if (latestBooking) {
+                const roomTypeMap = {
+                    'classic': 'Classic Parisian Room',
+                    'deluxe': 'Deluxe Eiffel Suite',
+                    'presidential': 'Presidential Grand Suite',
+                    '': 'Any (Room Type Not Specified)'
+                };
+                const displayedRoomType = roomTypeMap[latestBooking.roomType] || 'Unknown Room Type';
+
+                bookingDetailsContent.innerHTML = `
+                    <div class="detail-item">
+                        <span class="detail-label">Confirmation Number:</span>
+                        <span class="detail-value">${latestBooking.confirmationNumber}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Guest Name:</span>
+                        <span class="detail-value">Monsieur ${latestBooking.guestName}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Check-in Date:</span>
+                        <span class="detail-value">${latestBooking.checkinDate}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Check-out Date:</span>
+                        <span class="detail-value">${latestBooking.checkoutDate}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Room Type:</span>
+                        <span class="detail-value">${displayedRoomType}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Guests:</span>
+                        <span class="detail-value">${latestBooking.adults} Adults, ${latestBooking.children} Children</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Total Price:</span>
+                        <span class="detail-value">${latestBooking.totalPrice}</span>
+                    </div>
+                `;
+            } else {
+                bookingDetailsContent.innerHTML = `
+                    <p style="text-align: center; color: #e74c3c;">No booking details found. Please make a reservation first.</p>
+                    <div class="text-center mt-4">
+                        <a href="book.html" class="btn btn-primary">Make a Reservation</a>
+                    </div>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+.confirmation-hero {
+    background: url('/Users/akshat/Desktop/coding/vs code /final_hotel/20250609_0158_Champagne Celebration_simple_compose_01jx8kk9w5f35b698a0y5ncajy.png') no-repeat center center/cover; /* Background image for confirmation hero */
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.confirmation-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.confirmation-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.confirmation-hero-content h2 {
+    font-size: 3.5em; 
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.confirmation-hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.booking-details-section {
+    background-color: #f8f8f8; 
+}
+
+.confirmation-wrapper {
+    max-width: 800px; 
+    margin: 0 auto;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    border: 1px solid #e5e5e5; 
+    text-align: center; 
+}
+
+.confirmation-wrapper h3 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #1a1a1a;
+    font-size: 2.2em;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: center; 
+    align-items: baseline;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.detail-label {
+    font-weight: bold;
+    color: #555;
+    margin-right: 10px;
+    min-width: 180px; 
+    text-align: right;
+}
+
+.detail-value {
+    color: #1a1a1a;
+    font-weight: 500;
+}
+
+.confirmation-actions {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px dashed #ddd;
+}
+
+.confirmation-actions p {
+    margin-bottom: 25px;
+    font-size: 1em;
+    color: #666;
+}
+
+.confirmation-actions .btn {
+    margin: 0 10px 15px; 
+    min-width: 180px; 
+}
+
+@media (max-width: 768px) {
+    .confirmation-hero-content h2 {
+        font-size: 2.8em;
+    }
+
+    .confirmation-hero-content p {
+        font-size: 1.1em;
+    }
+
+    .confirmation-wrapper {
+        padding: 30px;
+    }
+
+    .confirmation-wrapper h3 {
+        font-size: 2em;
+    }
+
+    .detail-item {
+        flex-direction: column; 
+        align-items: center;
+        text-align: center;
+    }
+
+    .detail-label {
+        text-align: center;
+        margin-right: 0;
+        margin-bottom: 5px;
+        min-width: auto;
+    }
+
+    .confirmation-actions .btn {
+        display: block; 
+        margin: 0 auto 15px; 
+        min-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .confirmation-hero {
+        padding: 60px 15px;
+        height: 35vh;
+    }
+
+    .confirmation-hero-content h2 {
+        font-size: 2.2em;
+    }
+
+    .confirmation-hero-content p {
+        font-size: 1em;
+    }
+
+    .confirmation-wrapper {
+        padding: 20px;
+    }
+
+    .confirmation-wrapper h3 {
+        font-size: 1.8em;
+    }
+
+    .detail-item {
+        font-size: 1em;
+    }
+}

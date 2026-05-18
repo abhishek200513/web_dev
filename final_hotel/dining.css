@@ -1,0 +1,195 @@
+.dining-page-hero {
+    background: url('https://media-cdn2.greatbritishchefs.com/media/1kcprx5x/img15097.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.dining-page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dining-page-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.dining-page-hero-content h2 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.dining-page-hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.restaurant-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.restaurant-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-8px);
+}
+
+.restaurant-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.restaurant-card .card-content {
+    padding: 25px;
+}
+
+.restaurant-card h4 {
+    font-size: 2em;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.restaurant-card .cuisine-type {
+    font-size: 1.1em;
+    color: #6a5a40;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.restaurant-card p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.restaurant-card ul {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    list-style: inside disc;
+    color: #666;
+    padding-left: 0;
+}
+
+.restaurant-card ul li {
+    margin-bottom: 5px;
+    font-size: 0.95em;
+}
+
+.restaurant-card .btn-primary {
+    padding: 10px 20px;
+    font-size: 0.9em;
+    margin-top: 15px;
+}
+
+.private-dining-section .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
+}
+
+.private-dining-content {
+    flex: 1;
+}
+
+.private-dining-content h3 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.private-dining-content p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.private-dining-image {
+    flex: 1;
+    text-align: center;
+}
+
+.private-dining-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 992px) {
+    .restaurant-card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .dining-page-hero-content h2 {
+        font-size: 2.8em;
+    }
+    .dining-page-hero-content p {
+        font-size: 1.1em;
+    }
+    .restaurants-section .section-title {
+        font-size: 2em;
+    }
+    .restaurants-section .section-subtitle {
+        font-size: 1em;
+        margin-bottom: 40px;
+    }
+    .restaurant-card img {
+        height: 200px;
+    }
+    .private-dining-section .container {
+        flex-direction: column;
+    }
+    .private-dining-image {
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dining-page-hero {
+        padding: 60px 15px;
+        height: 35vh;
+    }
+    .dining-page-hero-content h2 {
+        font-size: 2.2em;
+    }
+    .dining-page-hero-content p {
+        font-size: 1em;
+    }
+    .restaurant-card .card-content {
+        padding: 15px;
+    }
+    .restaurant-card h4 {
+        font-size: 1.8em;
+    }
+    .restaurant-card .cuisine-type {
+        font-size: 1em;
+    }
+}

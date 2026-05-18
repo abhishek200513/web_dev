@@ -1,0 +1,177 @@
+/* Boutique Page Hero Section */
+.boutique-hero {
+    background: url('https://theluxuryplaybook.com/wp-content/uploads/2024/07/The-5-Most-Expensive-Watches-On-The-Market.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.boutique-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.boutique-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.boutique-hero-content h2 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.boutique-hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* Brand Card Grid (similar to rooms section) */
+.brand-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.brand-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    text-align: center; /* Center content within the card */
+}
+
+.brand-card:hover {
+    transform: translateY(-8px);
+}
+
+.brand-card img {
+    width: 100%;
+    height: 250px; /* Consistent image height */
+    object-fit: cover;
+    display: block;
+}
+
+.brand-card .card-content {
+    padding: 25px;
+}
+
+.brand-card h4 {
+    font-size: 2em;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.brand-card p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.brand-card .btn-primary {
+    padding: 10px 20px;
+    font-size: 0.9em;
+    margin-top: 15px;
+}
+
+/* Boutique Experience Section (similar to About/Dining on index) */
+.boutique-experience-section .container {
+    display: flex;
+    flex-direction: row-reverse; /* Image on right, content on left */
+    align-items: center;
+    gap: 50px;
+}
+
+.boutique-experience-content {
+    flex: 1;
+}
+
+.boutique-experience-content h3 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.boutique-experience-content p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.boutique-experience-image {
+    flex: 1;
+    text-align: center;
+}
+
+.boutique-experience-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .brand-card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .boutique-hero-content h2 {
+        font-size: 2.8em;
+    }
+    .boutique-hero-content p {
+        font-size: 1.1em;
+    }
+    .brands-section .section-title {
+        font-size: 2em;
+    }
+    .brands-section .section-subtitle {
+        font-size: 1em;
+        margin-bottom: 40px;
+    }
+    .brand-card img {
+        height: 200px;
+    }
+    .boutique-experience-section .container {
+        flex-direction: column;
+    }
+    .boutique-experience-image {
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .boutique-hero {
+        padding: 60px 15px;
+        height: 35vh;
+    }
+    .boutique-hero-content h2 {
+        font-size: 2.2em;
+    }
+    .boutique-hero-content p {
+        font-size: 1em;
+    }
+    .brand-card .card-content {
+        padding: 15px;
+    }
+    .brand-card h4 {
+        font-size: 1.8em;
+    }
+}

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Le Grandeur Luxury Hotel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        .admin-hero {
+            background: url('https://images.prismic.io/chevalblanc/ZnBhe5m069VX10JT_LightWeb-ChevalBlancParis_Fa%C3%A7ade__LesFleursdelaPassion__VincentLeroux.jpg?auto=format,compress?rect=168,0,3184,2348&w=1440&h=1062&q=50') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .admin-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .admin-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .admin-hero-content h2 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .admin-hero-content p {
+            font-size: 1.3em;
+            margin-bottom: 0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        }
+
+        .admin-data-section {
+            background-color: #f8f8f8;
+        }
+
+        .admin-data-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+            background-color: #fff;
+            border: 1px solid #e5e5e5;
+        }
+
+        .admin-data-wrapper h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+            font-size: 2.2em;
+        }
+
+        .data-category {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .data-category:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .data-category h4 {
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            color: #333;
+            text-align: center;
+        }
+
+        .item-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .user-card, .booking-card {
+            background-color: #fcfcfc;
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #eee;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+            position: relative; 
+        }
+
+        .user-card .display-mode {
+        }
+
+        .user-card .edit-mode {
+            display: none; 
+        }
+
+        .user-card p, .booking-card p {
+            margin-bottom: 8px;
+            font-size: 1em;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        .user-card p strong, .booking-card p strong {
+            color: #1a1a1a;
+            margin-right: 5px;
+        }
+
+        .admin-detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 5px 0;
+            border-bottom: 1px dotted #f0f0f0;
+            font-size: 1.05em;
+        }
+        .admin-detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .admin-detail-label {
+            font-weight: bold;
+            color: #6a5a40; 
+            flex-basis: 40%; 
+            text-align: left; 
+        }
+
+        .admin-detail-value {
+            color: #333;
+            flex-basis: 60%; 
+            text-align: right; 
+        }
+
+        .edit-mode .form-group {
+            margin-bottom: 15px;
+        }
+        .edit-mode label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 0.95em;
+        }
+        .edit-mode input[type="text"],
+        .edit-mode input[type="email"],
+        .edit-mode input[type="password"] {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        .edit-mode .btn-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .edit-mode .btn-group .btn {
+            flex: 1;
+            margin: 0 5px;
+            padding: 8px 15px;
+            font-size: 0.9em;
+        }
+        .edit-mode .btn-group .btn:first-child { margin-left: 0; }
+        .edit-mode .btn-group .btn:last-child { margin-right: 0; }
+
+        .admin-actions {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px dashed #ddd;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .admin-hero-content h2 {
+                font-size: 2.8em;
+            }
+            .admin-data-wrapper {
+                padding: 30px;
+            }
+            .admin-data-wrapper h3 {
+                font-size: 2em;
+            }
+            .data-category h4 {
+                font-size: 1.5em;
+            }
+            .admin-detail-item {
+                flex-direction: column; 
+                align-items: flex-start;
+                text-align: left;
+            }
+            .admin-detail-value {
+                text-align: left;
+            }
+            .edit-mode .btn-group {
+                flex-direction: column;
+            }
+            .edit-mode .btn-group .btn {
+                margin: 5px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .admin-hero {
+                padding: 60px 15px;
+                height: 35vh;
+            }
+            .admin-hero-content h2 {
+                font-size: 2.2em;
+            }
+            .admin-data-wrapper {
+                padding: 20px;
+            }
+            .admin-data-wrapper h3 {
+                font-size: 1.8em;
+            }
+            .user-card, .booking-card {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1 class="logo"><a href="index.html">Le Grandeur</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#rooms">Rooms & Suites</a></li>
+                    <li><a href="dining.html">Dining</a></li> 
+                    <li><a href="boutique.html">Boutique</a></li> 
+                    <li><a href="login.html">Log in</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                    <li><a href="rooms.html" class="btn btn-primary">Book Now</a></li>
+                    <li><a href="admin.html">Admin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="admin-hero">
+        <div class="admin-hero-content">
+            <h2>Le Grandeur Admin Panel</h2>
+            <p>View and manage local website data.</p>
+        </div>
+    </section>
+
+    <section class="admin-data-section section-padding">
+        <div class="container">
+            <div class="admin-data-wrapper">
+                <h3>Local Storage Data Overview</h3>
+                <div id="localStorageData">
+                    <p style="text-align: center; color: #888;">No structured data found in local storage. Please ensure you have signed up and booked a room.</p>
+                </div>
+                
+                <div class="admin-actions">
+                    <button id="clearLocalStorageBtn" class="btn btn-primary">Clear All Local Storage Data</button>
+                    <p style="font-size: 0.85em; color: #777; margin-top: 10px;">(This will clear all saved users, login status, and bookings.)</p>
+                </div>
+                <div id="adminMessageBox" class="message-box" style="display: none;"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Le Grandeur</h4>
+                    <p>123 Rue de la Paix<br>75001 Paris, France</p>
+                    <p>+33 1 23 45 67 89</p>
+                    <p><a href="mailto:info@legrandeur.com">info@legrandeur.com</a></p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#rooms">Rooms & Suites</a></li>
+                        <li><a href="index.html#dining">Dining</a></li>
+                        <li><a href="index.html#spa">Spa & Wellness</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><img src="https://placehold.co/24/D0D0D0/808080?text=FB" alt="Facebook"></a>
+                        <a href="#" aria-label="Instagram"><img src="https://placehold.co/24/D0D0D0/808080?text=IG" alt="Instagram"></a>
+                        <a href="#" aria-label="Twitter"><img src="https://placehold.co/24/D0D0D0/808080?text=TW" alt="Twitter"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Le Grandeur. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const localStorageDataElement = document.getElementById('localStorageData');
+            const clearLocalStorageBtn = document.getElementById('clearLocalStorageBtn');
+            const adminMessageBox = document.getElementById('adminMessageBox');
+
+            function showAdminMessage(message, type = 'info') {
+                adminMessageBox.textContent = message;
+                adminMessageBox.className = 'message-box ' + type;
+                adminMessageBox.style.display = 'block';
+                setTimeout(() => {
+                    adminMessageBox.style.display = 'none';
+                }, 5000);
+            }
+
+            const roomTypeMap = {
+                'classic': 'Classic Parisian Room',
+                'deluxe': 'Deluxe Eiffel Suite',
+                'presidential': 'Presidential Grand Suite',
+                '': 'Any (Not Specified)'
+            };
+
+            function displayLocalStorageData() {
+                let htmlContent = '';
+                const users = JSON.parse(localStorage.getItem('leGrandeurUsers')) || [];
+                const latestBooking = JSON.parse(localStorage.getItem('leGrandeurLatestBooking'));
+                const loggedInUser = JSON.parse(localStorage.getItem('leGrandeurLoggedInUser'));
+
+                if (users.length === 0 && !latestBooking && !loggedInUser) {
+                    htmlContent = '<p style="text-align: center; color: #888;">No structured data found in local storage. Please ensure you have signed up and booked a room to see data here.</p>';
+                } else {
+                    if (users.length > 0) {
+                        htmlContent += `
+                            <div class="data-category">
+                                <h4>Registered Users</h4>
+                                <div class="item-list">
+                        `;
+                        users.forEach((user, index) => {
+                            const isCurrentlyLoggedIn = loggedInUser && loggedInUser.email === user.email;
+                            htmlContent += `
+                                <div class="user-card" data-email="${user.email}" data-index="${index}">
+                                    <div class="display-mode">
+                                        <p><strong>User ${index + 1}:</strong> ${isCurrentlyLoggedIn ? '<span style="color: green; font-weight: bold;">(Logged In)</span>' : ''}</p>
+                                        <p><strong>Name:</strong> ${user.full_name}</p>
+                                        <p><strong>Email:</strong> ${user.email}</p>
+                                        <p><strong>Password (Not Hashed):</strong> ${user.password}</p>
+                                        <button class="btn btn-primary btn-sm edit-user-btn mt-3" style="font-size: 0.85em; padding: 6px 12px;">Edit</button>
+                                    </div>
+                                    <div class="edit-mode">
+                                        <div class="form-group">
+                                            <label for="edit-name-${index}">Full Name</label>
+                                            <input type="text" id="edit-name-${index}" value="${user.full_name}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="edit-email-${index}">Email</label>
+                                            <input type="email" id="edit-email-${index}" value="${user.email}" disabled> <!-- Email usually not editable for simplicity in this context -->
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="edit-password-${index}">New Password</label>
+                                            <input type="password" id="edit-password-${index}" value="${user.password}">
+                                        </div>
+                                        <div class="btn-group">
+                                            <button class="btn btn-primary btn-sm save-user-btn" style="font-size: 0.85em; padding: 6px 12px;">Save Changes</button>
+                                            <button class="btn btn-secondary btn-sm cancel-edit-btn" style="font-size: 0.85em; padding: 6px 12px;">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        });
+                        htmlContent += `</div></div>`;
+                    }
+
+                    if (latestBooking) {
+                        const displayedRoomType = roomTypeMap[latestBooking.roomType] || 'Unknown Room Type';
+                        htmlContent += `
+                            <div class="data-category">
+                                <h4>Latest Booking Details</h4>
+                                <div class="booking-card">
+                                    <div class="admin-detail-item">
+                                        <span class="admin-detail-label">Confirmation Number:</span>
+                                        <span class="admin-detail-value">${latestBooking.confirmationNumber}</span>
+                                    </div>
+                                    <div class="admin-detail-item">
+                                        <span class="admin-detail-label">Guest Name:</span>
+                                        <span class="admin-detail-value">${latestBooking.guestName}</span>
+                                    </div>
+                                    <div class="admin-detail-item">
+                                        <span class="admin-detail-label">Check-in Date:</span>
+                                        <span class="admin-detail-value">${latestBooking.checkinDate}</span>
+                                    </div>
+                                    <div class="admin-detail-item">
+                                        <span class="admin-detail-label">Check-out Date:</span>
+                                        <span class="admin-detail-value">${latestBooking.checkoutDate}</span>
+                                    </div>
+                                    <div class="admin-detail-item">
+                                        <span class="admin-detail-label">Room Type:</span>
+                                        <span class="admin-detail-value">${displayedRoomType}</span>
+                                    </div>
+                                    <div class="admin-detail-item">
+                                        <span class="admin-detail-label">Guests:</span>
+                                        <span class="admin-detail-value">${latestBooking.adults} Adults, ${latestBooking.children} Children</span>
+                                    </div>
+                                    <div class="admin-detail-item">
+                                        <span class="admin-detail-label">Total Price:</span>
+                                        <span class="admin-detail-value">${latestBooking.totalPrice}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }
+                }
+                localStorageDataElement.innerHTML = htmlContent;
+                addEventListenersToUserCards(); 
+            }
+
+            function toggleEditMode(cardElement, enableEdit) {
+                const displayMode = cardElement.querySelector('.display-mode');
+                const editMode = cardElement.querySelector('.edit-mode');
+                if (enableEdit) {
+                    displayMode.style.display = 'none';
+                    editMode.style.display = 'block';
+                } else {
+                    displayMode.style.display = 'block';
+                    editMode.style.display = 'none';
+                }
+            }
+
+            function saveUserChanges(cardElement) {
+                const userEmail = cardElement.dataset.email;
+                const index = parseInt(cardElement.dataset.index);
+
+                const newName = document.getElementById(`edit-name-${index}`).value;
+                const newPassword = document.getElementById(`edit-password-${index}`).value;
+
+                if (!newName.trim()) {
+                    showAdminMessage("Full Name cannot be empty.", "error");
+                    return;
+                }
+                if (!newPassword.trim()) {
+                    showAdminMessage("Password cannot be empty.", "error");
+                    return;
+                }
+
+                let users = JSON.parse(localStorage.getItem('leGrandeurUsers')) || [];
+                const userToUpdateIndex = users.findIndex(u => u.email === userEmail);
+
+                if (userToUpdateIndex !== -1) {
+                    users[userToUpdateIndex].full_name = newName;
+                    users[userToUpdateIndex].password = newPassword;
+                    localStorage.setItem('leGrandeurUsers', JSON.stringify(users));
+
+                    let loggedInUser = JSON.parse(localStorage.getItem('leGrandeurLoggedInUser'));
+                    if (loggedInUser && loggedInUser.email === userEmail) {
+                        loggedInUser.name = newName;
+                        localStorage.setItem('leGrandeurLoggedInUser', JSON.stringify(loggedInUser));
+                    }
+                    
+                    showAdminMessage("User data updated successfully!", "success");
+                    displayLocalStorageData(); 
+                } else {
+                    showAdminMessage("Error: User not found.", "error");
+                }
+            }
+
+            function addEventListenersToUserCards() {
+                document.querySelectorAll('.user-card').forEach(card => {
+                    card.querySelector('.edit-user-btn').addEventListener('click', function() {
+                        toggleEditMode(card, true);
+                    });
+
+                    card.querySelector('.save-user-btn').addEventListener('click', function() {
+                        saveUserChanges(card);
+                    });
+
+                    card.querySelector('.cancel-edit-btn').addEventListener('click', function() {
+                        toggleEditMode(card, false);
+                    });
+                });
+            }
+
+            displayLocalStorageData();
+
+            clearLocalStorageBtn.addEventListener('click', function() {
+                const confirmed = window.confirm("Are you sure you want to clear ALL local storage data for this website? This action cannot be undone.");
+                if (confirmed) {
+                    localStorage.clear();
+                    displayLocalStorageData();
+                    showAdminMessage("Local storage has been cleared!", "success");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

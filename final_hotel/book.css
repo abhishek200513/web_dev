@@ -1,0 +1,160 @@
+.booking-hero {
+    background: url('https://images.prestigeonline.com/wp-content/uploads/sites/5/2022/07/07103005/cheval-blanc-paris_rooms-suites-alexandre-tabaste-6-min-1600x900.jpeg') no-repeat center center/cover; /* Background image for booking hero */
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.booking-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.booking-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+}
+
+.booking-hero-content h2 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.booking-hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.booking-form-section {
+    background-color: #fff;
+}
+
+.booking-form-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); 
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+}
+
+.booking-form-wrapper h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #1a1a1a;
+    font-size: 2em;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+    font-size: 1.05em;
+}
+
+.form-group input[type="text"],
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd; 
+    border-radius: 5px;
+    font-family: 'Lora', serif;
+    font-size: 1em;
+    color: #555;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group select:focus {
+    border-color: #6a5a40; 
+    box-shadow: 0 0 0 3px rgba(106, 90, 64, 0.2);
+    outline: none; 
+}
+
+input.datepicker {
+    cursor: pointer;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.booking-notes {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.95em;
+    color: #777;
+    line-height: 1.8;
+    padding-top: 20px;
+    border-top: 1px dashed #eee; /* Dotted line separator */
+}
+
+.booking-notes a {
+    color: #6a5a40;
+    font-weight: bold;
+}
+
+/* Responsive adjustments for booking page */
+@media (max-width: 768px) {
+    .booking-hero-content h2 {
+        font-size: 2.5em;
+    }
+
+    .booking-hero-content p {
+        font-size: 1em;
+    }
+
+    .booking-form-wrapper {
+        padding: 25px; /* Reduce padding on smaller screens */
+    }
+
+    .booking-form-wrapper h3 {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .booking-hero {
+        padding: 60px 15px;
+        height: 35vh;
+    }
+
+    .booking-hero-content h2 {
+        font-size: 2em;
+    }
+
+    .booking-hero-content p {
+        font-size: 0.9em;
+    }
+
+    .form-group label {
+        font-size: 1em;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 10px 12px;
+        font-size: 0.95em;
+    }
+}

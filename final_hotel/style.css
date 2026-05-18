@@ -1,0 +1,465 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lora', serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f8f8;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    color: #d8b06e;
+    margin-bottom: 15px;
+}
+
+h1 { font-size: 3.5em; }
+h2 { font-size: 2.8em; }
+h3 { font-size: 2.2em; }
+h4 { font-size: 1.8em; }
+
+a {
+    text-decoration: none;
+    color: #6a5a40;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #a08c6a;
+}
+
+ul {
+    list-style: none;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #d8b06e;
+    color: #fff;
+    border: 2px solid #d8b06e;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    border-color: #d8b06e;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #d8b06e;
+    border: 2px solid #d8b06e;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-secondary:hover {
+   background-color: #d8b06e;
+    color: #fff;
+}
+
+.btn-link {
+    color: #6a5a40;
+    font-weight: bold;
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+.btn-link:hover {
+    color: #a08c6a;
+    text-decoration: underline;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+.bg-light {
+    background-color: #f1f1f1;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    color: #1a1a1a;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 50px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.main-header {
+    background-color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    margin: 0;
+    font-size: 2em;
+    font-family: 'Playfair Display', serif;
+}
+
+.logo a {
+    color: #1a1a1a;
+    text-transform: uppercase;
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 30px;
+}
+
+.main-nav a {
+    color: #555;
+    font-weight: bold;
+    font-size: 1.05em;
+    position: relative;
+}
+
+.main-nav a:hover {
+    color: #6a5a40;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #6a5a40;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+.main-nav .btn-primary {
+    padding: 8px 18px;
+    font-size: 0.9em;
+}
+
+.hero-section {
+    background: url('https://images.prismic.io/chevalblanc/ZnBhe5m069VX10JT_LightWeb-ChevalBlancParis_Fa%C3%A7ade__LesFleursdelaPassion__VincentLeroux.jpg?auto=format,compress?rect=168,0,3184,2348&w=1440&h=1062&q=50') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 150px 20px;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero-content h2 {
+    font-size: 4em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.about-section .container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-content {
+    flex: 1;
+}
+
+.about-content h3 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.about-image {
+    flex: 1;
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.room-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.room-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.room-card:hover {
+    transform: translateY(-5px);
+}
+
+.room-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.room-card h4 {
+    font-size: 1.6em;
+    color: #333;
+    margin-bottom: 10px;
+    padding: 0 15px;
+}
+
+.room-card p {
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+
+.dining-section .container {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 50px;
+}
+
+.dining-content {
+    flex: 1;
+}
+
+.dining-content h3 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.dining-content p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.dining-image {
+    flex: 1;
+    text-align: center;
+}
+
+.dining-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.main-footer {
+    background-color: #1a1a1a;
+    color: #eee;
+    padding: 60px 0 20px;
+    font-size: 0.95em;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-col h4 {
+    color: #fff;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+.footer-col p, .footer-col ul li {
+    margin-bottom: 10px;
+    color: #bbb;
+}
+
+.footer-col a {
+    color: #bbb;
+}
+
+.footer-col a:hover {
+    color: #fff;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-links img {
+    width: 30px;
+    height: 30px;
+    filter: invert(1);
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.social-links img:hover {
+    opacity: 1;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    color: #888;
+}
+
+@media (max-width: 768px) {
+    .main-header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .hero-content h2 {
+        font-size: 2.5em;
+    }
+
+    .hero-content p {
+        font-size: 1.2em;
+    }
+
+    .about-section .container,
+    .dining-section .container {
+        flex-direction: column;
+    }
+
+    .about-image, .dining-image {
+        margin-top: 40px;
+    }
+
+    .room-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.8em;
+    }
+
+    .hero-section {
+        padding: 100px 15px;
+        height: 60vh;
+    }
+
+    .hero-content h2 {
+        font-size: 2em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+    }
+
+    .section-padding {
+        padding: 50px 0;
+    }
+
+    .section-title {
+        font-size: 2em;
+    }
+
+    .footer-col h4 {
+        margin-top: 20px;
+    }
+}
